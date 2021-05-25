@@ -16,24 +16,16 @@ export class UsuarioService {
      let params = new HttpParams().append('page', '2');
      params = params.append('nombre', 'Fernando Santillan');
 
-     const headers = new HttpHeaders({
-       'token-usuario': 'ABC5452169303'
-     });
 
-     return this.http.get('https://ressqres.in/api/user', {
-       params,
-       headers
+
+     return this.http.get('https://reqres123.in/api/user', {
+       params
      }).pipe(
        map( resp => resp['data']),
-       catchError(this.manejarError)
+      //  catchError(this.manejarError)
      );
   }
 
 
-  manejarError(error: HttpErrorResponse){
-    console.log('Sucedió un Error');
-    console.log('Registrado en Log File');
-    console.log(error);
-    return throwError('Error Personalizado');
-  }
+
 }
